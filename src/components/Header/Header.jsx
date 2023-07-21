@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useContext } from "react"
 
 import {
   StyledHeader,
@@ -9,12 +9,15 @@ import {
   StyledStarSolid,
 } from "./styledHeader"
 
+import { context } from "../Context/Context"
+
 const Header = () => {
-  const [isFav, setIsFav] = useState(false)
-  const [prompt, setPrompt] = useState("")
+  const { setInput } = useContext(context)
+
+  const [showFavorites, setShowFavorites] = useState(false)
 
   const handleClick = () => {
-    isFav ? setIsFav(false) : setIsFav(true)
+    showFavorites ? setShowFavorites(false) : setShowFavorites(true)
   }
 
   return (
@@ -31,9 +34,9 @@ const Header = () => {
         name="search"
         id="search"
         placeholder="Buscar"
-        onChange={(event) => setPrompt(event.target.value)}
+        onChange={(event) => setInput(event.target.value)}
       />
-      {isFav ? (
+      {showFavorites ? (
         <StyledStarSolid onClick={handleClick} />
       ) : (
         <StyledStar onClick={handleClick} />

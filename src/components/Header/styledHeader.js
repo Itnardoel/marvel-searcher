@@ -4,7 +4,7 @@ import starSolid from "../../../public/star_solid.svg"
 
 const StyledHeader = styled.header`
   display: flex;
-  align-items: center;s
+  align-items: center;
 `
 const StyledInput = styled.input`
   width: 260px;

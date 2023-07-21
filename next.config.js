@@ -8,6 +8,15 @@ const nextConfig = {
 
     return config
   },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "i.annihil.us",
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig
