@@ -1,14 +1,18 @@
 "use client"
 import { createContext, useState, useEffect } from "react"
 
-import fetchCharacters from "@/utils/utils"
+import { fetchCharacters, fetchComicsById } from "@/utils/utils"
 
 export const context = createContext()
 const { Provider } = context
 
 const CustomProvider = ({ children }) => {
   const [input, setInput] = useState("")
+  const [showModal, setShowModal] = useState(false)
   const [characters, setCharacters] = useState([])
+  const [comics, setComics] = useState([])
+  const [characterId, setCharacterId] = useState("")
+  const [characterName, setCharacterName] = useState("")
 
   useEffect(() => {
     fetchCharacters(input)
@@ -16,9 +20,36 @@ const CustomProvider = ({ children }) => {
       .catch((error) => console.error(error))
   }, [input])
 
-  console.log(characters)
+  useEffect(() => {
+    if (characterId !== "") {
+      fetchComicsById(characterId)
+        .then((data) => setComics(data.data.results))
+        .catch((error) => console.error(error))
+    }
+  }, [characterId])
 
-  return <Provider value={{ input, setInput, characters }}>{children}</Provider>
+  console.log(characters)
+  console.log(comics)
+  console.log(characterId)
+
+  return (
+    <Provider
+      value={{
+        input,
+        setInput,
+        characters,
+        showModal,
+        setShowModal,
+        characterId,
+        setCharacterId,
+        comics,
+        characterName,
+        setCharacterName,
+      }}
+    >
+      {children}
+    </Provider>
+  )
 }
 
 export default CustomProvider
