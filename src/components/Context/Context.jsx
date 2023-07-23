@@ -1,7 +1,7 @@
 "use client"
 import { createContext, useState, useEffect } from "react"
 
-import { fetchCharacters, fetchComicsById } from "@/utils/utils"
+import { fetchCharacters, fetchCharacterComicsById } from "@/utils/utils"
 
 export const context = createContext()
 const { Provider } = context
@@ -22,7 +22,7 @@ const CustomProvider = ({ children }) => {
 
   useEffect(() => {
     if (characterId !== "") {
-      fetchComicsById(characterId)
+      fetchCharacterComicsById(characterId)
         .then((data) => setComics(data.data.results))
         .catch((error) => console.error(error))
     }

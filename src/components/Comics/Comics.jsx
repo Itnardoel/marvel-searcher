@@ -1,16 +1,18 @@
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import {
   StyledContainer,
   StyledStar,
   StyledStarSolid,
   StyledImage,
 } from "./styledComics"
-import Image from "next/image"
 
 const IMAGE_SIZE = "portrait_xlarge"
 
 const Comics = ({ comic }) => {
   const [isFav, setIsFav] = useState(false)
+
+  const router = useRouter()
 
   const handleClick = () => {
     isFav ? setIsFav(false) : setIsFav(true)
@@ -19,6 +21,7 @@ const Comics = ({ comic }) => {
     <StyledContainer>
       <div>
         <StyledImage
+          onClick={() => router.push(`/comic/${comic.id}`)}
           src={`${comic.thumbnail.path}/${IMAGE_SIZE}.${comic.thumbnail.extension}`}
           alt={`${comic.name} thumbnail`}
           width={150}
@@ -28,7 +31,7 @@ const Comics = ({ comic }) => {
       </div>
       <div>
         <h3>
-          {`${comic.title}`}{" "}
+          {comic.title}
           {isFav ? (
             <StyledStarSolid onClick={handleClick} />
           ) : (
@@ -36,7 +39,7 @@ const Comics = ({ comic }) => {
           )}
         </h3>
 
-        <p>{`${comic.description}`}</p>
+        <p>{comic.description}</p>
       </div>
     </StyledContainer>
   )

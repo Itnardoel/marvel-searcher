@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import { StyledModal, StyledDiv, StyledImage } from "./styledModal"
-import Image from "next/image"
 import { context } from "../Context/Context"
 import Comics from "../Comics/Comics"
 

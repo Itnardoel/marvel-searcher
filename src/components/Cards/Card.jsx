@@ -42,7 +42,7 @@ const Card = ({ character }) => {
         <StyledStar onClick={handleClick} />
       )}
       <StyledImage
-        id={`${character.id}`}
+        id={character.id}
         onClick={toggleModal}
         src={`${character.thumbnail.path}/${IMAGE_SIZE}.${character.thumbnail.extension}`}
         alt={`${character.name} thumbnail`}
