@@ -15,8 +15,8 @@ const fetchCharacters = async (value) => {
   let url = ""
 
   if (value === "") {
-    // url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&offset=${offset}&limit=8`
-    url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=8`
+    url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&offset=${offset}&limit=8`
+    // url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=8`
   } else {
     url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&nameStartsWith=${value}&limit=8`
   }
@@ -26,7 +26,6 @@ const fetchCharacters = async (value) => {
   if (!res.ok) {
     throw new Error("Failed to fetch data")
   }
-
   return res.json()
 }
 

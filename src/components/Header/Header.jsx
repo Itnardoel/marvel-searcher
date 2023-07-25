@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import Link from "next/link"
-import { useState, useContext } from "react"
+import { useContext } from "react"
 
 import {
   StyledHeader,
@@ -13,9 +13,8 @@ import {
 import { context } from "../Context/Context"
 
 const Header = () => {
-  const { setInput } = useContext(context)
-
-  const [showFavorites, setShowFavorites] = useState(false)
+  const { input, setInput, showFavorites, setShowFavorites } =
+    useContext(context)
 
   const handleClick = () => {
     showFavorites ? setShowFavorites(false) : setShowFavorites(true)

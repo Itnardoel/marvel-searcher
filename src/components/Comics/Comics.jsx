@@ -5,6 +5,8 @@ import {
   StyledStar,
   StyledStarSolid,
   StyledImage,
+  StyledInfo,
+  StyledH4,
 } from "./styledComics"
 
 const IMAGE_SIZE = "portrait_xlarge"
@@ -29,18 +31,17 @@ const Comics = ({ comic }) => {
           priority
         />
       </div>
-      <div>
-        <h3>
+      <StyledInfo>
+        <StyledH4>
           {comic.title}
           {isFav ? (
             <StyledStarSolid onClick={handleClick} />
           ) : (
             <StyledStar onClick={handleClick} />
           )}
-        </h3>
-
+        </StyledH4>
         <p>{comic.description}</p>
-      </div>
+      </StyledInfo>
     </StyledContainer>
   )
 }

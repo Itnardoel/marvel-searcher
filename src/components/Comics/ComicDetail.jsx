@@ -1,11 +1,11 @@
 "use client"
-import { StyledContainer, StyledInfo } from "./styleComicDetail"
+import { StyledContainer, StyledInfo, StyledImage } from "./styleComicDetail"
 import Image from "next/image"
 
 const ComicDetail = ({ comic, published, writer, penciller, coverArtist }) => {
   return (
     <StyledContainer>
-      <Image
+      <StyledImage
         src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
         alt={`${comic.title} cover`}
         width={545}

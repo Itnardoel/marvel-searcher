@@ -6,12 +6,22 @@ import Card from "./Card"
 import Modal from "@/components/Modal/Modal"
 
 const Cards = () => {
-  const { characters, showModal, setShowModal } = useContext(context)
+  const {
+    characters,
+    showModal,
+    setShowModal,
+    showFavorites,
+    favoriteCharacters,
+  } = useContext(context)
   return (
     <StyledContainer>
-      {characters.map((character) => (
-        <Card key={character.id} character={character} />
-      ))}
+      {showFavorites
+        ? favoriteCharacters.map((character) => (
+            <Card key={character.id} character={character} />
+          ))
+        : characters.map((character) => (
+            <Card key={character.id} character={character} />
+          ))}
       <Modal isVisible={showModal} onClose={() => setShowModal(false)}></Modal>
     </StyledContainer>
   )

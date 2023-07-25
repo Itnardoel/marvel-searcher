@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useMemo } from "react"
 import { context } from "../Context/Context"
 
 import {
@@ -18,9 +18,18 @@ const Card = ({ character }) => {
     characterId,
     setCharacterId,
     setCharacterName,
+    addFavoriteCharacter,
+    removeFavoriteCharacter,
+    favoriteCharacters,
   } = useContext(context)
 
-  const [isFav, setIsFav] = useState(false)
+  const isInFavoriteCharacters = () => {
+    return favoriteCharacters.find(
+      (favoriteCharacter) => favoriteCharacter.name === character.name
+    )
+  }
+
+  const [isFav, setIsFav] = useState(isInFavoriteCharacters() ? true : false)
 
   const toggleModal = (event) => {
     if (characterId !== event.currentTarget.id) {
@@ -30,16 +39,22 @@ const Card = ({ character }) => {
     setShowModal(!showModal)
   }
 
-  const handleClick = () => {
-    isFav ? setIsFav(false) : setIsFav(true)
+  const handleClick = (event) => {
+    if (isFav) {
+      setIsFav(false)
+      removeFavoriteCharacter(event.currentTarget.id)
+    } else {
+      setIsFav(true)
+      addFavoriteCharacter(event.currentTarget.id)
+    }
   }
 
   return (
     <StyledCard>
-      {isFav ? (
-        <StyledStarSolid onClick={handleClick} />
+      {isInFavoriteCharacters() ? (
+        <StyledStarSolid onClick={handleClick} id={character.name} />
       ) : (
-        <StyledStar onClick={handleClick} />
+        <StyledStar onClick={handleClick} id={character.name} />
       )}
       <StyledImage
         id={character.id}

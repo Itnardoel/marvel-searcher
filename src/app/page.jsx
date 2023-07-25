@@ -2,10 +2,6 @@
 
 import Cards from "@/components/Cards/Cards"
 
-export default async function Home() {
-  return (
-    <>
-      <Cards />
-    </>
-  )
+export default function Home() {
+  return <>{<Cards />}</>
 }

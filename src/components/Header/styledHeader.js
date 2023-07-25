@@ -5,9 +5,12 @@ import starSolid from "../../../public/star_solid.svg"
 const StyledHeader = styled.header`
   display: flex;
   align-items: center;
+  background: #fff;
+  gap: 2rem;
+  margin: 0 0 0 1rem;
 `
 const StyledInput = styled.input`
-  width: 260px;
+  width: 77vw;
   border: 1px solid #ffffff;
   display: block;
   padding: 9px 4px 9px 0px;
@@ -19,6 +22,7 @@ const StyledInput = styled.input`
   &:focus {
     background-image: none;
     text-indent: 20px;
+    outline: none;
   }
 `
 
@@ -26,10 +30,16 @@ const StyledStar = styled(star)`
   color: grey;
   width: 26px;
   height: 24px;
+  margin-right: 1rem;
+  min-width: 26px;
+  min-height: 24px;
 `
 const StyledStarSolid = styled(starSolid)`
   color: grey;
   width: 26px;
   height: 24px;
+  margin-right: 1rem;
+  min-width: 26px;
+  min-height: 24px;
 `
 export { StyledHeader, StyledInput, StyledStar, StyledStarSolid }

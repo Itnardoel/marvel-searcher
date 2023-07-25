@@ -8,6 +8,8 @@ const ComicDetailPage = async ({ params }) => {
     },
   } = await fetchComicById(params.id)
 
+  console.log(params.id)
+
   const [writer] = comic.creators.items.filter((creator) => {
     if (creator.role.includes("riter")) {
       return creator.name

@@ -1,10 +1,8 @@
-// import "./globals.css"
-// import { Inter } from "next/font/google"
+import "./globals.css"
+
 import StyledComponentsRegistry from "@/lib/rergisty"
 import CustomProvider from "@/components/Context/Context"
 import Header from "@/components/Header/Header"
-
-// const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Marvel Searcher",
@@ -16,7 +14,6 @@ export default function RootLayout({ children }) {
     <StyledComponentsRegistry>
       <CustomProvider>
         <html lang="en">
-          {/* <body className={inter.className}> */}
           <body>
             <Header />
             {children}

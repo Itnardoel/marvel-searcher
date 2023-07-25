@@ -5,10 +5,22 @@ import Image from "next/image"
 
 const StyledContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 256px);
-  grid-template-rows: repeat(2, 380px);
+  grid-template-columns: repeat(1, 256px);
+  grid-template-rows: repeat(1, 380px);
   grid-gap: 28px 32px;
   justify-content: center;
+  position: relative;
+  top: 50px;
+
+  @media only screen and (min-width: 48em) {
+    grid-template-columns: repeat(2, 256px);
+    grid-template-rows: repeat(2, 380px);
+  }
+
+  @media only screen and (min-width: 80em) {
+    grid-template-columns: repeat(4, 256px);
+    grid-template-rows: repeat(2, 380px);
+  }
 `
 
 const StyledCard = styled.div`

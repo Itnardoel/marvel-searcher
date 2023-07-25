@@ -5,23 +5,46 @@ import Image from "next/image"
 
 const StyledContainer = styled.div`
   display: flex;
-  align-items: center;
+`
+
+const StyledInfo = styled.div`
+  height: 229px;
+  margin-right: 1.5rem;
+  overflow: hidden;
+`
+
+const StyledH4 = styled.h4`
+  margin-left: 10px;
 `
 
 const StyledStar = styled(star)`
   color: grey;
   width: 20px;
   height: 19px;
+  padding-left: 5px;
 `
+
 const StyledStarSolid = styled(starSolid)`
   color: grey;
   width: 20px;
   height: 19px;
+  padding-left: 5px;
 `
 
 const StyledImage = styled(Image)`
   margin: 10px;
   border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
-export { StyledContainer, StyledStar, StyledStarSolid, StyledImage }
+export {
+  StyledContainer,
+  StyledStar,
+  StyledStarSolid,
+  StyledImage,
+  StyledInfo,
+  StyledH4,
+}

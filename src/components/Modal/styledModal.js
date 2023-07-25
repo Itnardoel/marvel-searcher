@@ -18,16 +18,22 @@ const StyledDiv = styled.div`
   height: 448px;
   background-color: #ffffff;
   border-radius: 10px;
-  overflow: auto;
+  padding-bottom: 66px;
 `
+
+const StyledH2 = styled.h2`
+  margin: 10px;
+`
+
 const StyledImage = styled(Image)`
   margin-left: 400px;
   margin-top: 10px;
   position: fixed;
 `
 
-const StyledContainer = styled.div`
-  display: flex;
+const StyledScroller = styled.div`
+  overflow-y: scroll;
+  height: inherit;
 `
 
-export { StyledModal, StyledDiv, StyledImage }
+export { StyledModal, StyledDiv, StyledImage, StyledScroller, StyledH2 }
