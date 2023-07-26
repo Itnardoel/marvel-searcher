@@ -16,7 +16,6 @@ const fetchCharacters = async (value) => {
 
   if (value === "") {
     url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&offset=${offset}&limit=8`
-    // url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=8`
   } else {
     url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&nameStartsWith=${value}&limit=8`
   }

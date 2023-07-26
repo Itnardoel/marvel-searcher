@@ -13,8 +13,7 @@ import {
 import { context } from "../Context/Context"
 
 const Header = () => {
-  const { input, setInput, showFavorites, setShowFavorites } =
-    useContext(context)
+  const { setInput, showFavorites, setShowFavorites } = useContext(context)
 
   const handleClick = () => {
     showFavorites ? setShowFavorites(false) : setShowFavorites(true)

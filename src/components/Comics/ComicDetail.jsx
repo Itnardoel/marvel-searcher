@@ -1,6 +1,5 @@
 "use client"
 import { StyledContainer, StyledInfo, StyledImage } from "./styleComicDetail"
-import Image from "next/image"
 
 const ComicDetail = ({ comic, published, writer, penciller, coverArtist }) => {
   return (

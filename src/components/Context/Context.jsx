@@ -34,24 +34,9 @@ const CustomProvider = ({ children }) => {
     if (!isInFavorites(name)) {
       const aux = structuredClone(characters) //deep copy
       const found = aux.find((character) => character.name === name)
-      // found.comics.items = []
       setFavoriteCharacters([...favoriteCharacters, found])
     }
   }
-
-  // const addFavoriteComic = (title) => {
-  //   if (!isComicInFavorites(title)) {
-  //     const aux = [...favoriteCharacters]
-  //     const found = characters[0].comics.items.find(
-  //       (comic) => comic.title === title
-  //     )
-  //     const index = characters.findIndex(
-  //       (character) => character.id === characterId
-  //     )
-  //     aux[index].comics.items.push(found)
-  //     setFavoriteCharacters(aux)
-  //   }
-  // }
 
   const removeFavoriteCharacter = (name) => {
     setFavoriteCharacters(
@@ -59,23 +44,11 @@ const CustomProvider = ({ children }) => {
     )
   }
 
-  // const removeFavoriteComic = (title) => {
-  //   setFavoriteCharacters(
-  //     favoriteCharacters.comics.items.filter((comic) => comic.title !== title)
-  //   )
-  // }
-
   const isInFavorites = (name) => {
     return favoriteCharacters.some(
       (favoriteCharacter) => favoriteCharacter.name === name
     )
   }
-
-  // const isComicInFavorites = (title) => {
-  //   return favoriteCharacters.comics.items.some(
-  //     (favoriteComic) => favoriteComic.title === title
-  //   )
-  // }
 
   const setLocalStorage = useCallback(() => {
     window.localStorage.setItem(
@@ -123,10 +96,6 @@ const CustomProvider = ({ children }) => {
     setLocalStorage()
   }, [favoriteCharacters, setLocalStorage])
 
-  console.log(characters)
-  console.log(comics)
-  console.log(characterId)
-
   return (
     <Provider
       value={{
@@ -145,8 +114,6 @@ const CustomProvider = ({ children }) => {
         showFavorites,
         setShowFavorites,
         favoriteCharacters,
-        // addFavoriteComic,
-        // removeFavoriteComic,
       }}
     >
       {children}
